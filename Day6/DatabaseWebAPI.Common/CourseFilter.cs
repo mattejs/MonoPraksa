@@ -13,12 +13,15 @@ namespace DatabaseWebAPI.Common
 
         public string Filter()
         {
-            if (FilterValue == null)
+            if (SearchBy == null || SearchBy == "" || FilterValue == "" || FilterValue == null)
             {
                 return String.Format("");
             }
+            else
+            {
 
-            return String.Format(" WHERE {0} LIKE '%{1}%'", SearchBy, FilterValue);
+                return String.Format(" WHERE {0} LIKE '%{1}%'", SearchBy, FilterValue);
+            }
 
         }
     }

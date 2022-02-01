@@ -31,21 +31,11 @@ namespace DatabaseWebAPI.Repository
                 if(filter == null || sorter == null) {
                     command = new SqlCommand(
                       "SELECT * FROM dbo.Student", connection);
-                }                
-                if (filter != null)
-                {
-                    command = new SqlCommand(
-                      "SELECT * FROM dbo.Student" + filter.Filter(), connection);
-                }
-                if (sorter != null)
-                {
-                    command = new SqlCommand(
-                      "SELECT * FROM dbo.Student" + sorter.Sorting(), connection);
                 }
                 else
                 {
                     command = new SqlCommand(
-                      "SELECT * FROM dbo.Student" + filter.Filter() + sorter.Sorting(), connection);
+                      "SELECT * FROM dbo.Student" + filter.Filter() + sorter.Sorting() + paging.Page(), connection);
                 }
                 
                 connection.Open();

@@ -17,7 +17,7 @@ namespace DatabaseWebAPI.Common
                 return String.Format("");
             }
 
-                return String.Format(" ORDER BY {0} {1};", SortBy, SortOrder);         
+                return String.Format(" ORDER BY {0} {1}", SortBy, SortOrder);         
             
         }
     }

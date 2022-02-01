@@ -35,16 +35,6 @@ namespace DatabaseWebAPI.Repository
                     command = new SqlCommand(
                       "SELECT * FROM dbo.Course", connection);
                 }
-                else if (filter == null || sorter != null)
-                {
-                    command = new SqlCommand(
-                      "SELECT * FROM dbo.Course" + sorter.Sorting(), connection);
-                }
-                else if (filter != null || sorter == null)
-                {
-                    command = new SqlCommand(
-                      "SELECT * FROM dbo.Course" + sorter.Sorting(), connection);
-                }
                 else 
                 {
                     command = new SqlCommand(
