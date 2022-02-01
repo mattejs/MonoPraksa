@@ -38,7 +38,7 @@ namespace DatabaseWebAPI.Repository
                 else 
                 {
                     command = new SqlCommand(
-                      "SELECT * FROM dbo.Course" + filter.Filter() + sorter.Sorting(), connection);
+                      "SELECT * FROM dbo.Course" + filter.Filter() + sorter.Sorting() + paging.Page(), connection);
                 }
 
                 connection.Open();
