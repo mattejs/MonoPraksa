@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{978DE168-DDF0-4D16-B6E7-BA1C61ECAF22}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DatabaseWebAPI.Repository</RootNamespace>
+    <AssemblyName>DatabaseWebAPI.Repository</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CourseRepository.cs" />
+    <Compile Include="StudentRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DatabaseWebAPI.Common\DatabaseWebAPI.Common.csproj">
+      <Project>{1f99ba85-062d-4ec7-8e5a-182fba73a0e9}</Project>
+      <Name>DatabaseWebAPI.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DatabaseWebAPI.Model.Common\DatabaseWebAPI.Model.Common.csproj">
+      <Project>{0483d7ba-c04e-4de7-9051-c15348ddf6b5}</Project>
+      <Name>DatabaseWebAPI.Model.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DatabaseWebAPI.Model\DatabaseWebAPI.Model.csproj">
+      <Project>{d8818a82-8569-439a-8407-e0c266bff38e}</Project>
+      <Name>DatabaseWebAPI.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DatabaseWebAPI.Repository.Common\DatabaseWebAPI.Repository.Common.csproj">
+      <Project>{3e11c56e-4404-498d-b8cd-1b8ea4227f88}</Project>
+      <Name>DatabaseWebAPI.Repository.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
