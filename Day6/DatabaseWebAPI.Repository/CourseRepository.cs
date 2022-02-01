@@ -30,7 +30,7 @@ namespace DatabaseWebAPI.Repository
             using (SqlConnection connection = new SqlConnection(connecitonString))
             {
                 SqlCommand command = new SqlCommand();
-                if (filter == null || sorter == null)
+                if (filter == null || sorter == null || paging == null)
                 {
                     command = new SqlCommand(
                       "SELECT * FROM dbo.Course", connection);
