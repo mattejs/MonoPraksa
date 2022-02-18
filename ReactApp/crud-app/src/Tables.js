@@ -5,7 +5,7 @@ import { Table, Button, CardHeader, Container, Modal, ModalBody, ModalFooter, Fo
 export default function Tables() {
     const [users, setUsers] = useState([]);
     const [newUserModal, setNewUserModal] = useState(false);
-    const [newBookData, setNewBookData] = useState({username:'',email:''});
+    const [newUserData, setNewUserData] = useState({username:'',email:''});
 
     useEffect(() => {
         axios.get('https://localhost:44343/users')
@@ -22,13 +22,14 @@ export default function Tables() {
         localStorage.setItem('Email', email)
     }
     const AddUser = () => {
-        axios.post('https://localhost:44343/users', newBookData).then((response) => {
+        axios.post('https://localhost:44343/users', newUserData).then((response) => {
           
           console.log(response.data);
+          console.log(newUserData);
     
           users.push(response.data);
-    
-          setNewBookData({ users, newUserModal: false, newBookData: {
+          getData();    
+          setNewUserData({ users, newUserModal: false, newUserData: {
             username: '',
             email: ''
           }});
@@ -74,11 +75,12 @@ export default function Tables() {
                 <ModalBody>
                 <FormGroup>
                     <Label for="username">Username:</Label>
-                    <Input id="username" value={newBookData} onChange={(e) => {
+                    <Input id="username" value={newUserData.username} onChange={(e) => {
 
-                    newBookData.username = e.target.value;
+                    newUserData.username = e.target.value;
+                    console.log(newUserData);
 
-                    setNewBookData({ newBookData });
+                    setNewUserData({ newUserData });
                     }} />
                 </FormGroup>
                 <ModalFooter>
