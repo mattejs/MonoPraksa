@@ -1,3 +1,39 @@
+import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Login from './Login';
+import Reviews from './Reviews';
+import useToken from './useToken';
+import Tables from './Tables';
+import LoginPage from './LoginPage';
+import ReviewInput from './ReviewInput';
+
+
+
+function App() {
+
+  const { token, setToken } = useToken();
+  
+  if(!token) {    
+    return <Login setToken={setToken} />
+  } 
+  return (
+    <div className="wrapper">
+      <BrowserRouter>
+        <Routes>
+          <Route path="/reviews" exact element={<Reviews />}/>
+          <Route path="/" exact element={<Tables />}/>
+          <Route path="/register" exact element={<LoginPage />}/>
+          <Route path="/login" exact element={<Login setToken={setToken}/>}/>
+          <Route path="/reviewinput" exact element={<ReviewInput/>}/>
+        </Routes>
+      </BrowserRouter>
+    </div>
+  );  
+}
+
+export default App;
+
+/*
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Input, FormGroup, Label, Modal, ModalHeader, ModalBody, ModalFooter, Table, Button } from 'reactstrap';
@@ -178,3 +214,4 @@ class App extends Component {
 }
 
 export default App;
+*/

@@ -8,7 +8,20 @@ import Reviews from './Reviews';
 import reportWebVitals from './reportWebVitals';
 import NavbarComponent from './Navbar';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import UseToken from './useToken';
+import NameForm from './NameForm';
+import LoginPage from './LoginPage';
+import ReviewInput from './ReviewInput';
 
+
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+
+/*
 ReactDOM.render(
   <React.StrictMode>
     <Router>
@@ -22,7 +35,7 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
-
+*/
 
 
 // If you want to start measuring performance in your app, pass a function
